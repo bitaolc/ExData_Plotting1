@@ -1,5 +1,6 @@
 library(pryr)
 setwd("E:/Folder/Coursera/R/Exploratory Data Analysis/Week1")
+
 #download data
 url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 if (file.exists("dataset.zip") == F){
