@@ -9,6 +9,14 @@ unzip("dataset.zip")
 #read data
 hpc_raw <- read.table("household_power_consumption.txt", header = T, sep = ";", stringsAsFactors = F)
 
+#check dim and data frame size
+dim(hpc_raw) 
+object_size(hpc_raw)
+
+#clean and format dataset
+hpc <- hpc_raw[which(hpc_raw$Date %in% c("1/2/2007","2/2/2007")),]
+hpc[] <- lapply(hpc, function(x) gsub("\\?", NA, x)) #replace hpc with NA
+                
 #plot1
 png("plot1.png", width=480, height=480)
 hist(as.numeric(hpc$Global_active_power), xlab = "Global Active Power (kilowatts)", main = "Global Active Power",col = "red")
